@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tamim-file-host
+    runtime: docker
+    plan: free
+
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+
+    healthCheckPath: /health
+
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+
+      - key: BINANCE_API_KEY
+        sync: false
+
+      - key: BINANCE_SECRET_KEY
+        sync: false
+
+      - key: BINANCE_PAY_ID
+        sync: false
+
+      - key: POINTS_PER_REFERRAL
+        value: "200"
+
+      - key: PYTHONUNBUFFERED
+        value: "1"
